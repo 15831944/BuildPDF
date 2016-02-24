@@ -15,9 +15,13 @@ namespace BuildPDF.csproj {
       m.AppendLine("Collecting PDF paths...");
       pc.Collect();
 
+      int l = pc.PDFCollection.Count;
+      bool last = false;
+      m.Append("Merging ");
       foreach (FileInfo s in pc.PDFCollection) {
         if (s != null) {
-          m.Append("Merging " + s.Name + ", ");
+          last = l-- < 2;
+          m.Append((last ? "and " : string.Empty) + s.Name + (last ? ".\n" : ", "));
           m.Refresh();
         }
       }
@@ -30,14 +34,17 @@ namespace BuildPDF.csproj {
           n.Value.Split(new string[] { " - " }, StringSplitOptions.None)[0].Trim()));
       }
 
-      string tmpPath = Properties.Settings.Default.TargetPath + pc.PDFCollection[0].Name;
+      string tmpPath = Path.GetTempFileName().Replace(".tmp", ".PDF");
+      string path = Properties.Settings.Default.TargetPath + pc.PDFCollection[0].Name;
 
       PDFMerger pm = new PDFMerger(pc.PDFCollection, new FileInfo(tmpPath));
       pm.Merge();
 
-      m.AppendLine("Created " + tmpPath);
+      File.Copy(tmpPath, path);
+
+      m.AppendLine("Created '" + path + "'.");
       m.AppendLine("Opening...");
-      System.Diagnostics.Process.Start(tmpPath);
+      System.Diagnostics.Process.Start(path);
       System.GC.Collect(0, GCCollectionMode.Forced);
     }
 	

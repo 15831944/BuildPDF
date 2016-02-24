@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BuildPDF.csproj.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TableHash" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C6-D1-82-65-2B-53-7C-4A-D6-74-BF-33-69-75-A1-3E</Value>
+    </Setting>
+    <Setting Name="CutlistConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Server=AMSTORE-SQL-05;Database=ENGINEERING;Trusted_Connection=True;&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Server=AMSTORE-SQL-05;Database=ENGINEERING;Trusted_Connection=True;</Value>
+    </Setting>
+    <Setting Name="TableHashes" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;A5-E1-C2-0B-16-EB-35-E9-62-D3-1D-18-94-F0-81-80&lt;/string&gt;
+  &lt;string&gt;C6-D1-82-65-2B-53-7C-4A-D6-74-BF-33-69-75-A1-3E&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="MessageLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">50, 50</Value>
+    </Setting>
+    <Setting Name="MessageSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">800, 200</Value>
+    </Setting>
+    <Setting Name="TargetPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">S:\shared\general\KOHLS\FINISHED GOOD DRAWING PACKET\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

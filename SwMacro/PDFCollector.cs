@@ -36,15 +36,28 @@ namespace BuildPDF.csproj {
 
       List<FileInfo> ss = new List<FileInfo>();
       if (swt != null) {
+        string part = string.Empty;
+        bool in_lfi;
+        bool in_nf;
         for (int i = 1; i < swt.RowCount; i++) {
           System.Diagnostics.Debug.WriteLine("table: " + swt.GetProperty(i, "PART NUMBER"));
-          string part = swt.GetProperty(i, "PART NUMBER");
+          part = swt.GetProperty(i, "PART NUMBER");
           if (!part.StartsWith("0")) {
             FileInfo fi = d.GetPath(part);
+            in_lfi = is_in(part, lfi);
+            in_nf = is_in(part, nf);
             if (fi != null) {
-              ss.Add(fi);
+              if (!in_lfi) {
+                ss.Add(fi);
+              } else {
+                break;
+              }
             } else {
-              nf.Add(new KeyValuePair<string, string>(part, title));
+              if (!in_nf) {
+                nf.Add(new KeyValuePair<string, string>(part, title));
+              } else {
+                break;
+              }
             }
           } else {
             System.Diagnostics.Debug.WriteLine("Skipping " + part);
@@ -68,6 +81,44 @@ namespace BuildPDF.csproj {
           }
         }
       }
+    }
+
+    public static bool is_in(FileInfo f, List<FileInfo> l) {
+      foreach (FileInfo fi in l) {
+        if (f != null && Path.GetFileNameWithoutExtension(f.Name).ToUpper() == 
+          Path.GetFileNameWithoutExtension(fi.Name).ToUpper()) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    public static bool is_in(FileInfo f, List<KeyValuePair<string, string>> l) {
+      foreach (KeyValuePair<string, string> fi in l) {
+        if (f != null && Path.GetFileNameWithoutExtension(f.Name).ToUpper() == 
+    Path.GetFileNameWithoutExtension(fi.Key).ToUpper()) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    public static bool is_in(string f, List<FileInfo> l) {
+      foreach (FileInfo fi in l) {
+        if (f != null && f.ToUpper() == Path.GetFileNameWithoutExtension(fi.Name).ToUpper()) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    public static bool is_in(string f, List<KeyValuePair<string, string>> l) {
+      foreach (KeyValuePair<string, string> fi in l) {
+        if (f != null && f.ToUpper() == Path.GetFileNameWithoutExtension(fi.Key).ToUpper()) {
+          return true;
+        }
+      }
+      return false;
     }
 
     public List<FileInfo> PDFCollection {

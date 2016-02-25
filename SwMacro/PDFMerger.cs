@@ -53,13 +53,6 @@ namespace BuildPDF.csproj {
       }
     }
 
-    //private List<Document> _pdfs = new List<Document>();
-
-    //public List<Document> PDFs {
-    //  get { return _pdfs; }
-    //  set { _pdfs = value; }
-    //}
-
     private FileInfo _target;
 
     public FileInfo Target {

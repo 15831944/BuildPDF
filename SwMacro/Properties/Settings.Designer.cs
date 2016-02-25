@@ -23,18 +23,6 @@ namespace BuildPDF.csproj.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C6-D1-82-65-2B-53-7C-4A-D6-74-BF-33-69-75-A1-3E")]
-        public string TableHash {
-            get {
-                return ((string)(this["TableHash"]));
-            }
-            set {
-                this["TableHash"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
@@ -45,19 +33,17 @@ namespace BuildPDF.csproj.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>A5-E1-C2-0B-16-EB-35-E9-62-D3-1D-18-94-F0-81-80</string>
   <string>C6-D1-82-65-2B-53-7C-4A-D6-74-BF-33-69-75-A1-3E</string>
+  <string>3E-78-D8-47-DC-44-3C-93-6E-DB-E8-24-C3-63-22-FD</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection TableHashes {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["TableHashes"]));
-            }
-            set {
-                this["TableHashes"] = value;
             }
         }
         
@@ -85,15 +71,12 @@ namespace BuildPDF.csproj.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("S:\\shared\\general\\KOHLS\\FINISHED GOOD DRAWING PACKET\\")]
         public string TargetPath {
             get {
                 return ((string)(this["TargetPath"]));
-            }
-            set {
-                this["TargetPath"] = value;
             }
         }
     }

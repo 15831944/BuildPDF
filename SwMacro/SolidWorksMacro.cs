@@ -34,13 +34,19 @@ namespace BuildPDF.csproj {
           n.Value.Split(new string[] { " - " }, StringSplitOptions.None)[0].Trim()));
       }
 
+      System.GC.Collect(0, GCCollectionMode.Forced);
+
       string tmpPath = Path.GetTempFileName().Replace(".tmp", ".PDF");
       string path = Properties.Settings.Default.TargetPath + pc.PDFCollection[0].Name;
 
       PDFMerger pm = new PDFMerger(pc.PDFCollection, new FileInfo(tmpPath));
       pm.Merge();
 
-      File.Copy(tmpPath, path);
+      try {
+        File.Copy(tmpPath, path, true);
+      } catch (Exception e) {
+        m.AppendLine(e.Message);
+      }
 
       m.AppendLine("Created '" + path + "'.");
       m.AppendLine("Opening...");

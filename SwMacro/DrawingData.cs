@@ -5,7 +5,7 @@ using System.IO;
 using System.Data.SqlClient;
 
 namespace BuildPDF.csproj {
-  class DrawingData {
+  class DrawingData : IDisposable {
     SqlConnection sqc = new SqlConnection();
     public DrawingData() {
       sqc = new SqlConnection(Properties.Settings.Default.CutlistConnectionString);
@@ -36,5 +36,13 @@ namespace BuildPDF.csproj {
       return null;
     }
 
+
+    #region IDisposable Members
+
+    public void Dispose() {
+      sqc.Close();
+    }
+
+    #endregion
   }
 }

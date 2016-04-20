@@ -19,7 +19,7 @@ namespace BuildPDF.csproj {
 
     public void Collect() {
       string fullpath = (SwApp.ActiveDoc as ModelDoc2).GetPathName();
-      FileInfo top_level = d.GetPath(Path.GetFileNameWithoutExtension(fullpath));
+      FileInfo top_level = d.GetPath(Path.GetFileNameWithoutExtension(fullpath) + ".pdf");
       lfi.Add(top_level);
 
       collect_drwgs((ModelDoc2)SwApp.ActiveDoc);
